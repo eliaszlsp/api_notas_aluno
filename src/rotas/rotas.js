@@ -9,6 +9,10 @@ const {
 
 const rotas = express();
 
+rotas.get("/", (req, res) => {
+  res.redirect("/api-docs");
+});
+
 rotas.post("/alunos", criarAluno);
 
 rotas.get("/alunos", listarAlunos);

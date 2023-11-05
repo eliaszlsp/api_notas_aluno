@@ -14,14 +14,13 @@ rotas.get("/", (req, res) => {
   res.redirect("/api-docs");
 });
 
-rotas.use(validacaoAlunos);
-rotas.post("/alunos", criarAluno);
+rotas.post("/alunos", validacaoAlunos, criarAluno);
 
 rotas.get("/alunos", listarAlunos);
 
 rotas.get("/alunos/:id", buscarAlunoPorId);
 
-rotas.put("/alunos/:id", atualizarAlunoPorId);
+rotas.put("/alunos/:id", validacaoAlunos, atualizarAlunoPorId);
 
 rotas.delete("/alunos/:id", deletarAlunoPorId);
 

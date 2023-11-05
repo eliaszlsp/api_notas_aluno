@@ -54,7 +54,7 @@ const deletarAlunoPorId = async (req, res) => {
     if (deleted) {
       return res.status(200).json({ message: "Aluno deletado com sucesso" });
     } else {
-      res.status(404).json({ error: "Aluno não encontrado" });
+      return res.status(404).json({ error: "Aluno não encontrado" });
     }
   } catch (error) {
     res.status(500).json({ error: "Erro ao deletar aluno" });

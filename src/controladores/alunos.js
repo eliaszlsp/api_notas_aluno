@@ -1,13 +1,7 @@
 const db = require("../bancoDeDados/conexão");
-const alunoSchema = require("../validacoes/alunoSchema");
 
 const criarAluno = async (req, res) => {
   try {
-    const { error } = alunoSchema.validate(req.body);
-    if (error) {
-      return res.status(400).json({ error: error.details[0].message });
-    }
-
     const body = await db("alunos").insert(req.body, "id").returning("*");
     return res.status(201).json(body[0]);
   } catch (error) {
@@ -39,11 +33,6 @@ const buscarAlunoPorId = async (req, res) => {
 
 const atualizarAlunoPorId = async (req, res) => {
   try {
-    const { error } = alunoSchema.validate(req.body);
-    if (error) {
-      return res.status(400).json({ error: error.details[0].message });
-    }
-
     const updated = await db("alunos")
       .where({ id: req.params.id })
       .update(req.body);

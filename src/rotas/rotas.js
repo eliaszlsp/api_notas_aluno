@@ -1,4 +1,5 @@
 const express = require("express");
+const validacaoAlunos = require("../intermediarios/validacaoAlunos");
 const {
   criarAluno,
   listarAlunos,
@@ -13,6 +14,7 @@ rotas.get("/", (req, res) => {
   res.redirect("/api-docs");
 });
 
+rotas.use(validacaoAlunos);
 rotas.post("/alunos", criarAluno);
 
 rotas.get("/alunos", listarAlunos);

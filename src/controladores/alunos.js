@@ -14,6 +14,7 @@ const listarAlunos = async (req, res) => {
     const alunos = await db("alunos").select();
     return res.status(200).json(alunos);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: "Erro ao buscar alunos" });
   }
 };
@@ -27,6 +28,7 @@ const buscarAlunoPorId = async (req, res) => {
       return res.status(404).json({ error: "Aluno não encontrado" });
     }
   } catch (error) {
+
     res.status(500).json({ error: "Erro ao buscar aluno" });
   }
 };

@@ -1,15 +1,23 @@
-CREATE DATABASE escola;
+create table alunos (
+   id                     serial primary key,
+   nome                   varchar(255) not null,
+   idade                  int not null,
+   nota_primeiro_semestre float not null,
+   nota_segundo_semestre  float not null,
+   nome_professor         varchar(255) not null,
+   numero_sala            int not null
+);
 
-CREATE TABLE
-    alunos (
-        id SERIAL PRIMARY KEY,
-        nome VARCHAR(255) NOT NULL,
-        idade INT NOT NULL,
-        nota_primeiro_semestre FLOAT NOT NULL,
-        nota_segundo_semestre FLOAT NOT NULL,
-        nome_professor VARCHAR(255) NOT NULL,
-        numero_sala INT NOT NULL
-    );
-
-    INSERT INTO alunos (nome, idade, nota_primeiro_semestre, nota_segundo_semestre, nome_professor, numero_sala)
-VALUES ('elias', 18, 9.5, 8.5, 'joao', 10);
+insert into alunos (
+   nome,
+   idade,
+   nota_primeiro_semestre,
+   nota_segundo_semestre,
+   nome_professor,
+   numero_sala
+) values ( 'elias',
+           18,
+           9.5,
+           8.5,
+           'joao',
+           10 );
